@@ -1,10 +1,58 @@
 <!-- <p>products works!</p> -->
 <h1>
-    Store Name : {{storeName}}
+    Store Name : {{storeName|uppercase}}
 </h1>
 
 <img [src]="storeLogo" alt="">
 
-<h3>
-    “We offer an explicit discount of:” + {{discount}}
-</h3>
+<div *ngIf="discount; then thenBlock"></div>
+
+<ng-template #thenBlock>
+    <h3>
+        “We offer an explicit discount of:” + {{discount|percent}}
+    </h3>
+</ng-template>
+
+<select ng-model = "categoryList">
+    <option *ngFor="let category of categoryList" value="{{category.name}}">
+        {{category.name}}
+    </option>
+</select>
+
+<ng-template #showTable>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Image</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productList">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.img}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+
+<br>
+
+<input type="text" [(ngModel)]="clientName"/>{{clientName}}
+
+<br>
+
+<button (click)="showOrHide()">Buy</button>
+
+<div *ngIf="isPurchasesd; then purchase; else  showTable"></div>
+
+<ng-template #purchase>
+    <div>
+        "Thanks for purchasing from our Store "+ {{clientName}}
+    </div>
+</ng-template>
+<!-- <input type="button" value="Click Me !" (click)="showOrHide()"> -->

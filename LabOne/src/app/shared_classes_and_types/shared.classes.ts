@@ -13,6 +13,6 @@ export interface ICategory {
 
 export enum DiscountOffers {
     No_Discounts = 0,
-    tenPercent = 10,
-    fiftenPercent = 15
+    tenPercent = 0.1,
+    fiftenPercent = 0.15
 }
