@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DiscountOffers, IProduct, ICategory } from 'src/app/shared_classes_and_types/shared.classes';
+import { ProductserviceService } from 'src/services/productservice.service';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +8,7 @@ import { DiscountOffers, IProduct, ICategory } from 'src/app/shared_classes_and_
   styleUrls: ['./products.component.scss']
 })
 
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
   // discount: DiscountOffers = DiscountOffers.No_Discounts;
   discount: DiscountOffers = DiscountOffers.tenPercent;
   storeName: string;
@@ -17,7 +18,9 @@ export class ProductsComponent {
   clientName: string;
   isPurchasesd: boolean;
 
-  constructor() {
+  // returnedProductList:any[]=[];
+
+  constructor(private productSErvice:ProductserviceService) {
     this.storeName = "Kamal Store";
     this.storeLogo = "unkonwLogo";
     this.clientName = "";
@@ -30,17 +33,28 @@ export class ProductsComponent {
     ];
 
     this.productList = [
-      {id:1, name:"SAMSUNG", quantity:15, price:5000, img:"string"},
-      {id:1, name:"Huawei", quantity:10, price:6000, img:"string"},
-      {id:1, name:"iphone", quantity:7, price:10000, img:"string"},
-      {id:1, name:"Lenovo", quantity:4, price:8000, img:"string"}
+      {id:10, name:"SAMSUNG", quantity:15, price:5000, img:"string"},
+      {id:20, name:"Huawei", quantity:10, price:6000, img:"string"},
+      {id:30, name:"iphone", quantity:7, price:10000, img:"string"},
+      {id:40, name:"Lenovo", quantity:4, price:8000, img:"string"}
     ]
   }
 
-  showOrHide(){
-    // console.log( 'before click  --->  ' + this.isPurchasesd);
-    this.isPurchasesd = !this.isPurchasesd;
-    // console.log( 'After click  --->  ' + this.isPurchasesd);
+  // @Input() clickFromParent:any;
+  @Output() childEvent = new EventEmitter();
+
+  ngOnInit(): void {
+    // this.returnedProductList = this.productSErvice.getAllProducts();
+    // console.log("hello from product component");
+    // console.log(this.returnedProductList);
+    // this.renderValues();
   }
 
+  showOrHide(){
+    this.isPurchasesd = !this.isPurchasesd;
+  }
+
+  renderValues():any[]{
+    return this.productList = this.productSErvice.getAllProducts();
+  }
 }

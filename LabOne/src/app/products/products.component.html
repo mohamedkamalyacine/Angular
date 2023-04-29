@@ -56,3 +56,10 @@
     </div>
 </ng-template>
 <!-- <input type="button" value="Click Me !" (click)="showOrHide()"> -->
+<div *ngFor="let product of productList">
+    {{product.id}}
+    {{product.name}}
+    {{product.quantity}}
+    {{product.price}}
+    {{product.img}}
+</div>

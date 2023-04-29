@@ -1,3 +1,18 @@
 <app-header></app-header>
 <app-products></app-products>
+<button (click)="toggleButtonState()">Display Data</button>
+<div *ngIf="isClicked; then showData;">
+    {{child.renderValues()}}
+</div>
+
+<ng-template #showData>
+    <div *ngFor="let data of appProductList">
+        {{data.id}}
+        {{data.name}}
+        {{data.quantity}}
+        {{data.price}}
+        {{data.img}}
+    </div>
+</ng-template>
+
 <app-footer></app-footer>
