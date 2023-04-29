@@ -1,6 +1,16 @@
 <app-header></app-header>
-<app-products></app-products>
-<button (click)="toggleButtonState()">Display Data</button>
+<main class="container my-4">
+    <router-outlet></router-outlet>
+  </main>
+<app-footer></app-footer>
+<!-- <router-outlet></router-outlet> -->
+
+<!-- <app-products></app-products>
+<app-home></app-home>
+<app-post></app-post>
+<app-user></app-user> -->
+
+<!-- <button (click)="toggleButtonState()">Display Data</button>
 <div *ngIf="isClicked; then showData;">
     {{child.renderValues()}}
 </div>
@@ -13,6 +23,6 @@
         {{data.price}}
         {{data.img}}
     </div>
-</ng-template>
-
-<app-footer></app-footer>
+</ng-template> -->
+<!-- <app-footer></app-footer>
+<router-outlet></router-outlet> -->

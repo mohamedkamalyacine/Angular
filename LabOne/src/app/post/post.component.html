@@ -1,0 +1,11 @@
+<p>post works!</p>
+<div *ngFor="let post of postsList">
+    <p>
+        Id : {{post.id}}
+        <button (click)="goToComments(post.id)">view post {{post.id}} comments</button>
+    </p>
+    <!-- <button>view post {{post.id}} comments</button> -->
+    <p>Title: {{post.title}}</p>
+    <p>Body: {{post.body}}</p>
+    <br>
+</div>

@@ -11,6 +11,18 @@ export interface ICategory {
     name:string;
 }
 
+export interface IUser {
+    name:string;
+    username:string;
+    email:string;
+}
+
+export interface IPost {
+    id:number;
+    title:string;
+    body:string;
+}
+
 export enum DiscountOffers {
     No_Discounts = 0,
     tenPercent = 0.1,
