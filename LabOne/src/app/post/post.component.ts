@@ -10,6 +10,7 @@ import { PostService } from 'src/services/post.service';
 export class PostComponent implements OnInit{
   postsList:any[];
   ErrMsg:any;
+  commentsList:any[];
 
   constructor(private postService:PostService, private router:Router, private activatedRoute:ActivatedRoute) {}
   
@@ -19,15 +20,9 @@ export class PostComponent implements OnInit{
       error:error=>this.ErrMsg=error
     });
   }
-
+  
   goToComments(postId:number){
     this.router.navigate(['/posts', postId]);
   }
-
-  // goToComments()
-  // {
-  //   //localhost:4200/posts/1/comments
-  //   this.router.navigate(['comments'],{relativeTo:this.activatedRoute});
-  // }
 
 }

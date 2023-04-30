@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductsComponent } from './products/products.component';
-import { IProduct } from './shared_classes_and_types/shared.classes';
 
 @Component({
   selector: 'myfirstapp-root',
@@ -13,7 +12,6 @@ export class AppComponent implements OnInit {
 
   @ViewChild(ProductsComponent) child :ProductsComponent;
   
-  // productList:IProduct[];
   appProductList:any[];
 
   clickFromChild:any;
@@ -23,6 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
   
+
   ngAfterViewInit()
   {
     this.appProductList = this.child.renderValues();

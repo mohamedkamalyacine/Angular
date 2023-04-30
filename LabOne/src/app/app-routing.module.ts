@@ -6,13 +6,20 @@ import { UserComponent } from './user/user.component';
 import { PostComponent } from './post/post.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
+import { CommentComponent } from './comment/comment.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'products', component:ProductsComponent},
   {path:'users', component:UserComponent},
   {path:'posts', component:PostComponent},
-  {path:'posts/:id', component:PostCommentsComponent},
+  {
+    path:'posts/:id',
+    component:PostCommentsComponent,
+    children:[
+      {path:'comments', component:CommentComponent}
+    ]
+  },
   {path:'**', component:PageNotFoundComponent}
 ];
 

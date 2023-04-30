@@ -23,6 +23,14 @@ export interface IPost {
     body:string;
 }
 
+export interface IComment {
+    postId:number;
+    id:number;
+    name:string;
+    email:string;
+    body:string;
+}
+
 export enum DiscountOffers {
     No_Discounts = 0,
     tenPercent = 0.1,

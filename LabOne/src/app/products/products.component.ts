@@ -40,14 +40,9 @@ export class ProductsComponent implements OnInit {
     ]
   }
 
-  // @Input() clickFromParent:any;
   @Output() childEvent = new EventEmitter();
-
+  
   ngOnInit(): void {
-    // this.returnedProductList = this.productSErvice.getAllProducts();
-    // console.log("hello from product component");
-    // console.log(this.returnedProductList);
-    // this.renderValues();
   }
 
   showOrHide(){
