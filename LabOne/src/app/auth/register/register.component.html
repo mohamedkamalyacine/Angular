@@ -1,30 +1,34 @@
 <!-- <p>register works!</p> -->
 <div class="container-fluid">
-    <form>
+    <form #userRegisterForm="ngForm" novalidate>
         <div class="form-group">
             <label>User Name</label>
-            <input type="text" class="form-control">
+            <input type="text" pattern="^[a-zA-Z]+$" [class.is-invalid]="name.invalid && name.touched" class="form-control" name="txtUserName" #name="ngModel" [(ngModel)]="userModel.name" required>
+            <small class="text-danger" *ngIf="name.invalid && name.touched">Name is required</small>
+
         </div>
 
         <div class="form-group"> 
             <label>Email</label>
-            <input type="email" class="form-control">
+            <input type="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" name="txtEmail" #email="ngModel" [(ngModel)]="userModel.email" required>
+            <small class="text-danger" *ngIf="email.invalid && email.touched">Email is required</small>
         </div>
         
         <div class="form-group">
             <label>Password</label>
-            <input type="password" class="form-control">
+            <input type="password" [class.is-invalid]="pass.invalid && pass.touched" class="form-control" name="txtPass" #pass="ngModel" [(ngModel)]="userModel.pass" ngModel required>
+            <small class="text-danger" *ngIf="pass.invalid && pass.touched">Password is required</small>
         </div>
         
         <div class="form-group">
             <label>Confirm Password</label>
-            <input type="password" class="form-control">
+            <input type="password" class="form-control" name="txtConfirmPass" #confPass="ngModel" ngModel required>
         </div>
         
         <br>
         
         <div class="form-group">
-            <select class="custom-select">
+            <select class="custom-select" name="ddlTopic" #topic="ngModel" ngModel required>
                 <option selected>Where do you hear about us?</option>
                 <option *ngFor="let webSite of webSitesList">
                     {{webSite}}
@@ -34,7 +38,7 @@
         
         <br>
         
-        <input type="text" class="btn btn-primary" value="Register">
+        <input type="text" [disabled]="userRegisterForm.form.invalid" class="btn btn-primary" value="Register">
 
     </form>
 </div>
