@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductsComponent } from './products/products.component';
+import { IProduct } from './shared_classes_and_types/shared.classes';
 
 @Component({
   selector: 'myfirstapp-root',
@@ -11,8 +12,9 @@ export class AppComponent implements OnInit {
   title = 'LabOne';
 
   @ViewChild(ProductsComponent) child :ProductsComponent;
+  messageFromChild:any;
   
-  appProductList:any[];
+  appProductList:IProduct[];
 
   clickFromChild:any;
 
@@ -24,7 +26,8 @@ export class AppComponent implements OnInit {
 
   ngAfterViewInit()
   {
-    this.appProductList = this.child.renderValues();
+    this.child.renderValues();
+    // this.appProductList = this.child.renderValues();
   }
   
   toggleButtonState(){

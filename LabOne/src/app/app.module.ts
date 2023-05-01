@@ -16,6 +16,8 @@ import { PostComponent } from './post/post.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
 import { CommentComponent } from './comment/comment.component';
+import { DiscountComponent } from './discount/discount.component';
+import { NoDiscountComponent } from './no-discount/no-discount.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CommentComponent } from './comment/comment.component';
     PostComponent,
     PageNotFoundComponent,
     PostCommentsComponent,
-    CommentComponent
+    CommentComponent,
+    DiscountComponent,
+    NoDiscountComponent
   ],
   imports: [
     BrowserModule,

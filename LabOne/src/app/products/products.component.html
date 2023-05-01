@@ -5,6 +5,11 @@
     {{product.price}}
     {{product.img}}
 </div>
+<button (click)="goToDiscounts()">Products with Discounts</button>
+<app-discount *ngIf="isDisButtPressed" [disCountedProducts]="disCountedProducts"></app-discount>
+<br>
+<button (click)="goToWithoutDiscounts()">Products without Discounts</button>
+<app-discount *ngIf="isNoDisButtPressed" [productsWithoutDiscounts]="productsWithoutDiscounts"></app-discount>
 <!-- <h1>
     Store Name : {{storeName|uppercase}}
 </h1>
