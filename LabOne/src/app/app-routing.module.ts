@@ -29,6 +29,10 @@ const routes: Routes = [
       {path:'comments', component:CommentComponent}
     ]
   },
+  {
+    path:'auth',
+    loadChildren: () => import('./auth/auth.module').then(a=>a.AuthModule)
+  },
   {path:'**', component:PageNotFoundComponent}
 ];
 
